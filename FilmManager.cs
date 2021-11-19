@@ -8,8 +8,13 @@ namespace FilmDB
 {
     public class FilmManager
     {
-        public FilmManager AddFilm(FilmModel filmModel)
+        public FilmManager AddFilm(FilmModel filmModel) 
         {
+            using (var context = new FilmContext())
+            {
+                context.Add(filmModel);
+                
+            }
             return this;
         }
 
